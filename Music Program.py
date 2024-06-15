@@ -1,5 +1,4 @@
 import tkinter as tk
-# import winsound
 import pygame
 import threading
 
@@ -14,8 +13,6 @@ FG_COL = "black"
 
 KEY_HEIGHT = 10
 KEY_WIDTH = 3
-
-pygame.mixer.init()
 
 
 def play_sound(filename):
@@ -39,6 +36,7 @@ def otomatik():
 
 
 if __name__ == "__main__":
+    pygame.mixer.init()
     pencere = tk.Tk()
     pencere.title(DEFAULT_TITLE)
     pencere.geometry(DEFAULT_DIMENSIONS)
