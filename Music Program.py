@@ -14,10 +14,15 @@ FG_COL = "black"
 KEY_HEIGHT = 10
 KEY_WIDTH = 3
 
+# a dictionary of string/pygame audio
+notes = {}
 
-def play_sound(filename):
+
+def play_sound(audio):
+    # @param: audio - pygame audio: sound to be played
+    # @return: no return
     def _play():
-        pygame.mixer.Sound(filename).play()
+        pygame.mixer.Sound.play(audio)
     threading.Thread(target=_play).start()
 
 
@@ -25,8 +30,12 @@ def play_note(note, btn):
     # @param: note - string; name of note to be played (eg. 'do', 're', 'mi')
     # @param: btn - tkinter button: button to play animation on
     # @return: no return
+
+    if note not in notes:
+        notes[note] = pygame.mixer.Sound("./notes/nota-" + note + ".wav")
+
     btn.config(relief=tk.SUNKEN)
-    play_sound("./notes/nota-" + note + ".wav")
+    play_sound(notes[note])
     btn.after(30, lambda: btn.config(relief=tk.RAISED))
 
 
