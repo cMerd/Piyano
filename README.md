@@ -2,10 +2,10 @@
 simple piano app made in python using tkinter
 
 ## Installation
-Make sure to have tkinter and winsound installed:
+Make sure to have tkinter and pygame installed:
 ```
     pip install tkinter
-    pip install winsound
+    pip install pygame
 ```
 
 ## Usage
